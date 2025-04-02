@@ -27,18 +27,21 @@ class ItrenalAppException(Exception):
         """
         Переопределяем метод __str__ для красивого вывода исключения.
         """
-    
         error_message = super().__str__()
         
-       
         if self.extra_info:
+            # Format extra information with colorama styles
             extra_info_str = "\n".join(
                 f"{Fore.YELLOW}{key}: {value}{Style.RESET_ALL}" 
                 for key, value in self.extra_info.items()
             )
-            return f"{error_message}\n{Fore.CYAN}▉ Additional Information:{Style.RESET_ALL}\n  |{extra_info_str.replace('\n','\n  |')}"
+            # Replace newlines in extra_info_str outside the f-string
+            formatted_extra_info = extra_info_str.replace("\n", "\n  |")
+            return (f"{error_message}\n"
+                    f"{Fore.CYAN}▉ Additional Information:{Style.RESET_ALL}\n"
+                    f"  |{formatted_extra_info}")
         
-        return colorama.Fore.RED,self.with_traceback(self.__traceback__)+'\n\n'+error_message
+        return f"{Fore.RED}{error_message}"
 
 
 if __name__ == "__main__":

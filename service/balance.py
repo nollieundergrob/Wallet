@@ -47,9 +47,13 @@ class AsyncBlockstreamBalanceChecker(AbstractBalanceChecker):
         if response.status_code != 200:
             raise ItrenalAppException(
                 "Ошибка получения баланса: {status_code}",
-               {"code": {response.status_code}, "time": f"{datetime.datetime.now()}", "details": f"{''.join([f"{key}:{value}\n" for key,value in response.__dict__.items()])}"},
-               status_code=response.status_code
-                )
+                {
+                    "code": response.status_code,
+                    "time": f"{datetime.datetime.now()}",
+                    "details": ''.join([f"{key}: {value}\n" for key, value in response.__dict__.items()])
+                },
+                status_code=response.status_code
+            )
         if response.status_code == 200:
             self.sleep -= 60 * self.sleep / 100
         
@@ -99,9 +103,13 @@ class AsyncEtherscanBalanceChecker(AbstractBalanceChecker):
         if response.status_code != 200:
             raise ItrenalAppException(
                 "Ошибка получения баланса: {status_code}",
-               {"code": {response.status_code}, "time": f"{datetime.datetime.now()}", "details": f"{''.join([f"{key}:{value}\n" for key,value in response.__dict__.items()])}"},
-               status_code=response.status_code
-                )
+                {
+                    "code": response.status_code,
+                    "time": f"{datetime.datetime.now()}",
+                    "details": ''.join([f"{key}: {value}\n" for key, value in response.__dict__.items()])
+                },
+                status_code=response.status_code
+            )
         if response.status_code == 200:
             self.sleep -= 60 * self.sleep / 100
         result = response.json()
@@ -306,9 +314,13 @@ class AsyncBlockchairBCHChecker(AbstractBalanceChecker):
         if response.status_code != 200:
             raise ItrenalAppException(
                 "Ошибка получения баланса: {status_code}",
-               {"code": {response.status_code}, "time": f"{datetime.datetime.now()}", "details": f"{''.join([f"{key}:{value}\n" for key,value in response.__dict__.items()])}"},
-               status_code=response.status_code
-                )
+                {
+                    "code": response.status_code,
+                    "time": f"{datetime.datetime.now()}",
+                    "details": ''.join([f"{key}: {value}\n" for key, value in response.__dict__.items()])
+                },
+                status_code=response.status_code
+            )
         if response.status_code == 200:
             self.sleep -= 60 * self.sleep / 100
 
@@ -353,9 +365,13 @@ class AsyncBscScanBalanceChecker(AbstractBalanceChecker):
         if response.status_code != 200:
             raise ItrenalAppException(
                 "Ошибка получения баланса: {status_code}",
-               {"code": {response.status_code}, "time": f"{datetime.datetime.now()}", "details": f"{''.join([f"{key}:{value}\n" for key,value in response.__dict__.items()])}"},
-               status_code=response.status_code
-                )
+                {
+                    "code": response.status_code,
+                    "time": f"{datetime.datetime.now()}",
+                    "details": ''.join([f"{key}: {value}\n" for key, value in response.__dict__.items()])
+                },
+                status_code=response.status_code
+            )
         if response.status_code == 200:
             self.sleep -= 60 * self.sleep / 100
 
@@ -406,9 +422,13 @@ class AsyncEtherscanUSDTChecker(AbstractBalanceChecker):
         if response.status_code != 200:
             raise ItrenalAppException(
                 "Ошибка получения баланса: {status_code}",
-               {"code": {response.status_code}, "time": f"{datetime.datetime.now()}", "details": f"{''.join([f"{key}:{value}\n" for key,value in response.__dict__.items()])}"},
-               status_code=response.status_code
-                )
+                {
+                    "code": response.status_code,
+                    "time": f"{datetime.datetime.now()}",
+                    "details": ''.join([f"{key}: {value}\n" for key, value in response.__dict__.items()])
+                },
+                status_code=response.status_code
+            )
         if response.status_code == 200:
             self.sleep -= 60 * self.sleep / 100
 

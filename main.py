@@ -154,8 +154,8 @@ async def main():
             f.write(",\n")
             
     if infinite:
-        coins = ["BTC",]
-        eth_checker = AsyncEtherscanBalanceChecker(api_key="YOUR_ETHERSCAN_API_KEY",proxy=random.choice(proxies))
+        coins = ["BTC","ETH"]
+        eth_checker = AsyncEtherscanBalanceChecker(api_key="WSYDP386X5EIT3HXAXTAZSXHR8GCD943DA",proxy=random.choice(proxies))
         checkers = [
             AsyncBlockstreamBalanceChecker(proxy=random.choice(proxies)),
             AsyncLitecoinMultiChecker(proxy=random.choice(proxies)),
